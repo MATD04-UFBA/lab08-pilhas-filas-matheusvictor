@@ -4,8 +4,8 @@ class cPilha {
 
 	private:
 		char* 	pilha;
-		int 	maxElems;	
-		int 	topo;
+		int 	topo; // aponta o limite da pilha
+		int 	capacidadeMaxima;	
 
 	public:
 
@@ -21,4 +21,5 @@ class cPilha {
 		void empilha(char n);
 
 		char desempilha();
+
 };

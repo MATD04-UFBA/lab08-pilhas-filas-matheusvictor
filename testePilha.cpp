@@ -2,24 +2,37 @@
 
 #include "tadPilha.h"
 
+using namespace std;
+
 // ***********************************************
 // ***********************************************
 // ***********************************************
 
 int main() {
 
-cPilha 	p(26);
-    
+    cPilha 	p;
     char c = 65;    // letra A
 
-    while ( !p.pilhaECheia() ) {
+    cout << p.pilhaEVazia() << endl;
 
+    while (!p.pilhaECheia()) {
         std::cout << "[ " << c << " ] "; 
     	p.empilha(c);
         c++;
-    	}
-    std::cout << std::endl; 
- 
+    }
+    
+    cout << p.pilhaEVazia() << endl;
+    cout << p.pilhaECheia() << endl;
+
+    /*
+    while ( !p.pilhaECheia() ) {
+        std::cout << "[ " << c << " ] "; 
+    	p.empilha(c);
+        c++;
+    }
+    */
+    
+    /*
     while ( !p.pilhaEVazia() ) {
 
         c = p.desempilha(); 
@@ -27,4 +40,5 @@ cPilha 	p(26);
         std::cout << "( " << c << " ) ";
         }
     std::cout << std::endl; 
+    */
 }
