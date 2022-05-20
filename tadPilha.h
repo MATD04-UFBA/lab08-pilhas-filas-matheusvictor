@@ -22,4 +22,6 @@ class cPilha {
 
 		char desempilha();
 
+		void imprimirPilha();
+
 };
