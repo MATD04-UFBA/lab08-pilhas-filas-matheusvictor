@@ -18,7 +18,7 @@ cPilha::cPilha(int numeroElementos) {
 		this->topo = 0;
 	}
 
-	this->capacidadeMaxima = numeroElementos;
+	this->capacidadeMaxima = (numeroElementos - 1);
 	
 	std::cout << std::endl;
 	std::cout << "topo da pilha: " << topo << std::endl;
@@ -49,7 +49,7 @@ cPilha::cPilha() {
 	}
 	*/
 
-	this->capacidadeMaxima = NUMERO_MINIMO_ELEMENTOS;
+	this->capacidadeMaxima = (NUMERO_MINIMO_ELEMENTOS - 1);
 
 	std::cout << std::endl;
 	std::cout << "topo da pilha: " << topo << std::endl;
@@ -86,7 +86,7 @@ bool cPilha::pilhaEVazia() {
 // ***********************************************
 
 bool cPilha::pilhaECheia() {
-	return this->topo == this->capacidadeMaxima - 1;
+	return this->topo == this->capacidadeMaxima;
 }
 
 // ***********************************************
@@ -95,9 +95,9 @@ bool cPilha::pilhaECheia() {
 
 void cPilha::empilha(char c) {
 
-	if (this->topo < (this->capacidadeMaxima - 1) && pilha[this->topo] != ' ') {
-		pilha[this->topo] = c;
-		this->topo++;
+	if (this->topo <= this->capacidadeMaxima  && pilha[this->topo] != ' ') {
+		std::cout << "O topo da pilha esta em: " << this->topo << std::endl;
+		pilha[++this->topo] = c;
   	} else {
 		  this->pilhaECheia();
 	}
@@ -113,9 +113,9 @@ char cPilha::desempilha() {
 	if (this->topo == 0) {
         return ' ';
     } else {
-        char conteudoRetirado = pilha[this->topo];
-		pilha[this->topo] = ' ';
-		this->topo--;
+		std::cout << "Topo: " << this->topo << ". ";
+        char conteudoRetirado = pilha[this->topo--];	
+		std::cout << conteudoRetirado << " foi removido. O topo da pilha esta em: " <<  this->topo << std::endl;
         return conteudoRetirado;
     }
 
@@ -123,10 +123,10 @@ char cPilha::desempilha() {
 
 void cPilha::imprimirPilha() {
 	
-	std::cout << "Pilha com " << (this->capacidadeMaxima - 1) << " posicoes alocadas, sendo " 
+	std::cout << "Pilha com " << this->capacidadeMaxima << " posicoes alocadas, sendo " 
 	<< this->topo << " ocupadas:" << std::endl;
 
-	for (int i = 0 ; i < (this->capacidadeMaxima - 1) ; i++) {
+	for (int i = 0 ; i < this->capacidadeMaxima ; i++) {
 		std::cout << "P [ " << i << " ] =  " << pilha[i] << std::endl;
 	}
 
